@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url("../fonts/Nunito/Nunito-Regular.ttf");
+}
+
+* {
+    font-family: 'Nunito';
+
+}
+
+a#dashboard {
+    color: #fff;
+    opacity: 1.0;
+}
+
+a#dashboard:hover {
+    text-decoration: none !important;
+    opacity: 0.7!important;
+}
+
+#updates .card {
+    border-radius: 12px;
+    background: #fefefe;
+}
+
+#updates .card h4,
+#updates .card h3{
+    color: #17a2b8;
+    font-weight: bold;
+}
+
+table {
+    border-radius: 5px;
+}
+
+h5 {
+    color: #fff !important;
+}
+
+@media (max-width:575px) {
+    table {
+        display: none;
+    }
+}

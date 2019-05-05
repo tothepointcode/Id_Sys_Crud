@@ -8,6 +8,9 @@
     <meta name="description" content="A system for managing national identification records">
     <title>National Identification System</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css" >
+    <link rel="stylesheet" href="assets/css/all.css" >
+
     <style>
         main {
             min-height: calc(100vh - 56px);
@@ -29,11 +32,24 @@
         </button>
 
         <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
+            <ul class="navbar-nav ml-auto">
+                    <?php if (!isset($_SESSION['admin'])): ?>
+                    <li class="nav-item active">
+                         <a class="nav-link px-2" href="#">Admin <i class="fas fa-user pl-2"></i></a>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle px-2" data-toggle="dropdown" type="button" href="#">Welcome, <?php echo $_SESSION['admin']; ?> <i class="fas fa-user pl-2"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item"  href="includes/destroy.php?des-cookies">Clear login data</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-dark" href="includes/destroy.php?logout">Logout</a>
+                    </li>
+                    <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
+
