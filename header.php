@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -92,6 +89,26 @@
                     update: submit
                 },()=>{});
             });
+
+            $('#login-form').submit((e)=>{
+                e.preventDefault();
+                let username = $("input[name='username']").val();
+                let password = $("input[name='pwd']").val();
+                let rememberMe = $("input[name='remember-me']:checked").val();
+                let submit = $("input[name='login-submit']").val();
+
+                $('#login-msg').load("includes/process.inc.php",{
+                    username : username,
+                    pwd : password,
+                    remember_me : rememberMe,
+                    login_submit : submit
+                },()=>{
+                    if (legit) {
+                        window.location.replace('dashboard.php');
+                    }
+                });
+
+            });
         });
     </script>
 </head>
@@ -105,11 +122,11 @@
 
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ml-auto">
-                    <?php if (!isset($_SESSION['admin'])): ?>
+                <?php if (!isset($_SESSION['admin'])): ?>
                     <li class="nav-item active">
-                         <a class="nav-link px-2" href="#">Admin <i class="fas fa-user pl-2"></i></a>
+                        <a class="nav-link px-2" href="#">Admin <i class="fas fa-user pl-2"></i></a>
                     </li>
-                    <?php else: ?>
+                <?php else: ?>
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle px-2" data-toggle="dropdown" type="button" href="#">Welcome, <?php echo $_SESSION['admin']; ?> <i class="fas fa-user pl-2"></i></a>
                         <ul class="dropdown-menu">
@@ -119,9 +136,10 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-dark" href="includes/destroy.php?logout">Logout</a>
                     </li>
-                    <?php endif; ?>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
+
 

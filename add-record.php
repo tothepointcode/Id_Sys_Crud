@@ -1,6 +1,6 @@
 <?php
-include("header.php");
 require ('includes/check-login.php');
+include("header.php");
 ?>
 <main>
     <div class="container py-2">

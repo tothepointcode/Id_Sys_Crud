@@ -1,4 +1,5 @@
     <?php
+        session_start();
         include('header.php');
     ?>
 
@@ -10,7 +11,7 @@
 
                         <!--------------------------------------------Login form starts ------------------------------------------------>
 
-                        <form class="col-md-4 p-4" action="includes/process.inc.php" method="post">
+                        <form id="login-form" class="col-md-4 p-4" action="includes/process.inc.php" method="post">
                             <div class="form-group">
                                 <input class="form-control p-4" type="text" name="username" placeholder="Username or email" value="<?php if (isset($_COOKIE['user'])) {
                                     echo $_COOKIE['user'];
@@ -28,12 +29,12 @@
                                 <label for="rem">Remember me</label>
                             </div>
                             <div class="form-group">
-                                <p><?php if (isset($_SESSION['msg'])) {
+                                <p id="login-msg"><?php if (isset($_SESSION['msg'])) {
                                         echo($_SESSION['msg']);
                                         unset($_SESSION['msg']);
                                     } ?></p>
                             </div>
-                            <button type="submit" name="login-submit" class="btn btn-dark btn-lg btn-block">Login</button>
+                            <input type="submit" name="login-submit" class="btn btn-dark btn-lg btn-block" value="Login">
                         </form>
 
                         <!--------------------------------------------- Login ends --------------------------------------------------------->
@@ -42,4 +43,6 @@
                     </div>
                 </div>
 
-                <?php include("footer.php"); ?>
+    <?php
+        include("footer.php");
+    ?>

@@ -1,6 +1,6 @@
 <?php
-    include("header.php");
     require ('includes/check-login.php');
+    include("header.php");
     require ("config/db.inc.php");
 
     $result = mysqli_query($conn, "SELECT * FROM clients_tb ORDER BY cl_id DESC;");

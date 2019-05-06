@@ -1,7 +1,6 @@
 <?php
-    include("header.php");
     require ('includes/check-login.php');
-
+    include("header.php");
     require ('config/db.inc.php');
 
     if (isset($_GET['edit-id'])) {

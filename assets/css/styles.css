@@ -53,3 +53,8 @@ h5 {
     -webkit-background-size: cover;
     background-size: cover;
 }
+
+#login-msg span{
+    border-radius: 2px;
+    letter-spacing: 2px;
+}
