@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="513be497-80e9-45e5-8a29-4a1bde7e5b4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/add-record-server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/dashboard-server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/db.inc.dashboard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/delete-record-server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/add-record.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delete-record.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit-record.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/check-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/check-login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/view-record.php" afterDir="false" />
-    </list>
+    <list default="true" id="513be497-80e9-45e5-8a29-4a1bde7e5b4d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +127,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63285000" />
+    <option name="totallyTimeSpent" value="63601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
