@@ -42,9 +42,10 @@
                     <section class="col-sm-8 border-right">
                         <h4>Stage One</h4>
 
-                        <form id="edit-form" class="row" action="includes/add-record-server.php?edit-id=<?php echo $idEdit; ?>" method="POST" enctype="multipart/form-data">
+                        <form id="edit-form" class="row" action="" method="POST" enctype="multipart/form-data">
 
                             <section class="col-sm-6 p-4">
+                                <input type="hidden" name="edit-id" value="<?php echo $idEdit; ?>">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
                                     <input id="first-name" class="form-control" type="text" name="first-name" placeholder="eg: Terra" value="<?php

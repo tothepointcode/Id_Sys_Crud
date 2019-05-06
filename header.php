@@ -59,8 +59,10 @@
             });
 
 
+            // Edit Handler
             $('#edit-form').on('submit',(e)=>{
                 e.preventDefault();
+                let editId = $("input[name='edit-id']").val();
                 let fname = $("input[name='first-name']").val();
                 let lname = $("input[name='last-name']").val();
                 let onames = $("input[name='other-names']").val();
@@ -72,9 +74,10 @@
                 let email = $("input[name='email-address']").val();
                 let paddr = $("input[name='postal-address']").val();
                 let mariStat = $("input[name='marital-status']").val();
-                let submit = $("input[name='add']").val();
+                let submit = $("input[name='update']").val();
 
                 $("#form-msg").load("includes/add-record-server.php",{
+                    edit_id : editId,
                     first_name : fname,
                     last_name : lname,
                     other_names : onames,
@@ -86,7 +89,7 @@
                     telephone_number : telnum,
                     postal_address : paddr,
                     marital_status : mariStat,
-                    add: submit
+                    update: submit
                 },()=>{});
             });
         });

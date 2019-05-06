@@ -3,7 +3,7 @@
     require ('includes/check-login.php');
     require ("config/db.inc.php");
 
-    $result = mysqli_query($conn, "SELECT * FROM clients_tb;");
+    $result = mysqli_query($conn, "SELECT * FROM clients_tb ORDER BY cl_id DESC;");
 
 ?><main>
     <div class="container py-2">
@@ -41,7 +41,7 @@
                     <div class="card">
                         <img src="<?php echo $path; ?>" height="300" class="card-img" alt="N/A">
                         <div class="card-body">
-                            <p>Name : <?php echo $row['cl_first_name'].$row['cl_last_name']; ?></p>
+                            <p>Name : <?php echo $row['cl_first_name']." ".$row['cl_last_name']; ?></p>
                             <p>Date of birth : <?php echo $row['cl_dob']?></p>
                             <p>Sex : <?php echo $row['cl_sex']?></p>
                             <p>Marital Status : <?php echo $row['cl_marital_status']?></p>

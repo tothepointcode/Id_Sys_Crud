@@ -12,7 +12,7 @@
 
                         <form class="col-md-4 p-4" action="includes/process.inc.php" method="post">
                             <div class="form-group">
-                                <input class="form-control p-4" type="text" name="username" placeholder="Username" value="<?php if (isset($_COOKIE['user'])) {
+                                <input class="form-control p-4" type="text" name="username" placeholder="Username or email" value="<?php if (isset($_COOKIE['user'])) {
                                     echo $_COOKIE['user'];
                                 }
                                 ?>">

@@ -12,7 +12,7 @@ if (isset($_GET['del-id'])) {
         echo mysqli_error($conn);
         exit();
     }
-    echo "Record deleted successully";
+    header("location: ../view-record.php");
     $_SESSION['msg'] = "Record Deleted successfully!";
 //    header("location: ../view-record.php");
 

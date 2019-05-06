@@ -92,7 +92,7 @@ require ('includes/check-login.php');
 
                     <section class="col-sm-4 row text-center">
                         <div class="col-sm"></div>
-                        <form class="col-sm-10 mt-5" method="post" action="includes/add-record-server.php" enctype="multipart/form-data">
+                        <form id="add-form-img" class="col-sm-10 mt-5" method="post" action="includes/add-record-server.php" enctype="multipart/form-data">
                             <div class="form-group">
                                  <h4 class="text-light">Stage Two</h4>
                                 <label for="file">Upload Profile Image</label>
@@ -100,7 +100,7 @@ require ('includes/check-login.php');
                                 <input id="file" class="form-control-file" type="file" name="file">
                                 <small class="help-block">Only png and jpg files are allowed!</small>
                             </div>
-
+                            <p id="form-msg-img"></p>
                             <button type="submit" name="addimage" class="btn btn-info btn-block">Register</button>
                         </form>
                         <div class="col-sm"></div>
