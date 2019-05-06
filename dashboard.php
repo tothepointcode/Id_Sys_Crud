@@ -77,10 +77,10 @@
 
                         <tr>
                             <td><div id="viewImg" style="background-image: url(<?php echo $path; ?>)"></div></td>
-                            <td><?php echo $row['cl_first_name'].$row['cl_last_name']; ?></td>
-                            <td><?php echo $row['cl_sex']?></td>
-                            <td><?php echo $row['cl_dob']?></td>
-                            <td><?php echo $row['cl_education_level']?></td>
+                            <td class="pt-4"><?php echo $row['cl_first_name']." ".$row['cl_last_name']; ?></td>
+                            <td class="pt-4"><?php echo $row['cl_sex']?></td>
+                            <td class="pt-4"><?php echo $row['cl_dob']?></td>
+                            <td class="pt-4"><?php echo $row['cl_education_level']?></td>
                         </tr>
 
                         <?php endwhile; ?>

@@ -22,6 +22,75 @@
         }
 
     </style>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            // Add record
+            $('#add-form').on('submit',(e)=>{
+                e.preventDefault();
+                let fname = $("input[name='first-name']").val();
+                let lname = $("input[name='last-name']").val();
+                let onames = $("input[name='other-names']").val();
+                let cdob = $("input[name='dob']").val();
+                let csex = $("select[name='sex']").val();
+                let pbirth = $("input[name='place-of-birth']").val();
+                let elevel = $("input[name='education-level']").val();
+                let telnum = $("input[name='telephone-number']").val();
+                let email = $("input[name='email-address']").val();
+                let paddr = $("input[name='postal-address']").val();
+                let mariStat = $("select[name='marital-status']").val();
+                let submit = $("input[name='add']").val();
+
+                $("#form-msg").load("includes/add-record-server.php",{
+                    first_name : fname,
+                    last_name : lname,
+                    other_names : onames,
+                    dob : cdob,
+                    sex : csex,
+                    place_of_birth : pbirth,
+                    education_level : elevel,
+                    email_address : email,
+                    telephone_number : telnum,
+                    postal_address : paddr,
+                    marital_status : mariStat,
+                    add: submit
+                },()=>{
+                });
+            });
+
+
+            $('#edit-form').on('submit',(e)=>{
+                e.preventDefault();
+                let fname = $("input[name='first-name']").val();
+                let lname = $("input[name='last-name']").val();
+                let onames = $("input[name='other-names']").val();
+                let cdob = $("input[name='dob']").val();
+                let csex = $("input[name='sex']").val();
+                let pbirth = $("input[name='place-of-birth']").val();
+                let elevel = $("input[name='education-level']").val();
+                let telnum = $("input[name='telephone-number']").val();
+                let email = $("input[name='email-address']").val();
+                let paddr = $("input[name='postal-address']").val();
+                let mariStat = $("input[name='marital-status']").val();
+                let submit = $("input[name='add']").val();
+
+                $("#form-msg").load("includes/add-record-server.php",{
+                    first_name : fname,
+                    last_name : lname,
+                    other_names : onames,
+                    dob : cdob,
+                    sex : csex,
+                    place_of_birth : pbirth,
+                    education_level : elevel,
+                    email_address : email,
+                    telephone_number : telnum,
+                    postal_address : paddr,
+                    marital_status : mariStat,
+                    add: submit
+                },()=>{});
+            });
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-info">

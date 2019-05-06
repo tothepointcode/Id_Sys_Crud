@@ -32,6 +32,9 @@ a#dashboard:hover {
 table {
     border-radius: 5px;
 }
+table tr {
+    vertical-align: center;
+}
 
 h5 {
     color: #fff !important;
@@ -44,8 +47,8 @@ h5 {
 }
 
 #viewImg {
-    height: 300px;
-    width: 300px;
+    height: 70px;
+    width: 70px;
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;

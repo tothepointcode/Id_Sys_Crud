@@ -23,7 +23,7 @@ require ('includes/check-login.php');
                     <section class="col-sm-8 border-right">
                         <h4 class="text-light">Stage One</h4>
 
-                        <form class="row" action="includes/add-record-server.php" method="POST" enctype="multipart/form-data">
+                        <form id="add-form" class="row" action="includes/add-record-server.php" method="POST" enctype="multipart/form-data">
 
                             <section class="col-sm-6 p-4">
                                 <div class="form-group">
@@ -83,7 +83,8 @@ require ('includes/check-login.php');
 
                                     </select>
                                 </div>
-                                <button type="submit" name="add" class="btn btn-block btn-dark">Next</button>
+                                    <p id="form-msg">.</p>
+                                <input type="submit" name="add" class="btn btn-block btn-dark" value="Next">
                             </section>
 
                         </form>

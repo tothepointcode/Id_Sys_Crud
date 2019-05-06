@@ -4,63 +4,60 @@ session_start();
 include "../config/db.inc.php";
 
 // Handle add and update operations
-
+$move = false;
 // stage one submit
 if (isset($_POST['add']) || isset($_POST['update'])) {
 
-    $firstName = mysqli_real_escape_string($conn, $_POST['first-name']);
-    $lastName = mysqli_real_escape_string($conn, $_POST['last-name']);
-    $otherNames = mysqli_real_escape_string($conn, $_POST['other-names']);
+    $firstName = mysqli_real_escape_string($conn, $_POST['first_name']);
+    $lastName = mysqli_real_escape_string($conn, $_POST['last_name']);
+    $otherNames = mysqli_real_escape_string($conn, $_POST['other_names']);
     $dob = mysqli_real_escape_string($conn, $_POST['dob']);
     $sex = mysqli_real_escape_string($conn, $_POST['sex']);
-    $placeOfBirth = mysqli_real_escape_string($conn, $_POST['place-of-birth']);
-    $educationLevel = mysqli_real_escape_string($conn, $_POST['education-level']);
-    $emailAddress = mysqli_real_escape_string($conn, $_POST['email-address']);
-    $telephoneNumber = mysqli_real_escape_string($conn, $_POST['telephone-number']);
-    $postalAddress = mysqli_real_escape_string($conn, $_POST['postal-address']);
-    $maritalStatus = mysqli_real_escape_string($conn, $_POST['marital-status']);
+    $placeOfBirth = mysqli_real_escape_string($conn, $_POST['place_of_birth']);
+    $educationLevel = mysqli_real_escape_string($conn, $_POST['education_level']);
+    $emailAddress = mysqli_real_escape_string($conn, $_POST['email_address']);
+    $telephoneNumber = mysqli_real_escape_string($conn, $_POST['telephone_number']);
+    $postalAddress = mysqli_real_escape_string($conn, $_POST['postal_address']);
+    $maritalStatus = mysqli_real_escape_string($conn, $_POST['marital_status']);
     $stat = 0;
 
     // ADD HANDLER
     if (isset($_POST['add'])) {
         // Verification of data input
         if (empty($firstName) || empty($lastName) || empty($otherNames) || empty($dob) || empty($sex) || empty($placeOfBirth) || empty($educationLevel) || empty($emailAddress) || empty($telephoneNumber) || empty($postalAddress) || empty($maritalStatus)) {
-            header("location: ../add-record.php?error=emptyfields");
-            exit();
+            echo "<span class='text-danger'>Fill all fields</span>";
         } else if (!preg_match("/^[a-zA-Z]*$/", $firstName) ||  !preg_match("/^[a-zA-Z]*$/", $lastName) || !preg_match("/^[a-zA-Z]*$/", $otherNames)) {
-            header("location: ../add-record.php?error=invalid-names");
-            exit();
+            echo "<span class='text-danger'>Invalid names entered</span>";
         } else if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
-            header("location: ../add-record.php?error=invalid-email");
-            exit();
+            echo "<span class='text-danger'>Invalid email entered</span>";
         } else {
-            $sql = "INSERT INTO clients_tb( 
-                      cl_first_name, 
-                      cl_last_name, 
-                      cl_other_names, 
-                      cl_dob, 
-                      cl_sex,
-                      cl_place_of_birth,
-                      cl_education_level,
-                      cl_email_address,
-                      cl_telephone_number,
-                      cl_postal_address,
-                      cl_marital_status,
-                      cl_img_stat) 
-                    VALUES(
-                      '$firstName',
-                      '$lastName',
-                      '$otherNames',
-                      '$dob',
-                      '$sex',
-                      '$placeOfBirth',
-                      '$educationLevel',
-                      '$emailAddress',
-                      '$telephoneNumber',
-                      '$postalAddress',
-                      '$maritalStatus',
-                      '$stat'
-                    );";
+//            $sql = "INSERT INTO clients_tb(
+//                      cl_first_name,
+//                      cl_last_name,
+//                      cl_other_names,
+//                      cl_dob,
+//                      cl_sex,
+//                      cl_place_of_birth,
+//                      cl_education_level,
+//                      cl_email_address,
+//                      cl_telephone_number,
+//                      cl_postal_address,
+//                      cl_marital_status,
+//                      cl_img_stat)
+//                    VALUES(
+//                      '$firstName',
+//                      '$lastName',
+//                      '$otherNames',
+//                      '$dob',
+//                      '$sex',
+//                      '$placeOfBirth',
+//                      '$educationLevel',
+//                      '$emailAddress',
+//                      '$telephoneNumber',
+//                      '$postalAddress',
+//                      '$maritalStatus',
+//                      '$stat'
+//                    );";
 
             if (!mysqli_query($conn, $sql)) {
                 echo "Sql error occurred : Insertion";
@@ -78,8 +75,7 @@ if (isset($_POST['add']) || isset($_POST['update'])) {
                     $resultArr = mysqli_fetch_assoc($result);
                     $_SESSION['addId'] = $resultArr['cl_id'];
                     $_SESSION['addok'] = "true";
-                    echo "Stage one successful";
-                    $_SESSION['msg'] = "Record added successfully!";
+                    echo "<span class='text-success'>Stage one successful!</span>";
                     exit();
                 }
 
@@ -92,18 +88,13 @@ if (isset($_POST['add']) || isset($_POST['update'])) {
 
         $id = $_GET['edit-id'];
 
-        echo $id;
-
         // Verification of data input
         if (empty($firstName) || empty($lastName) || empty($otherNames) || empty($dob) || empty($sex) || empty($placeOfBirth) || empty($educationLevel) || empty($emailAddress) || empty($telephoneNumber) || empty($postalAddress) || empty($maritalStatus)) {
-           header("location: ../add-record.php?error=emptyfields");
-            exit();
+            echo "<span class='text-danger'>Fill all fields!</span>";
         } else if (!preg_match("/^[a-zA-Z]*$/", $firstName) ||  !preg_match("/^[a-zA-Z]*$/", $lastName) || !preg_match("/^[a-zA-Z]*$/", $otherNames)) {
-            header("location: ../add-record.php?error=invalid-names");
-            exit();
+            echo "<span class='text-danger'>Invalid names entered!</span>";
         } else if (!filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
-            header("location: ../add-record.php?error=invalid-email");
-            exit();
+            echo "<span class='text-danger'>Invalid email entered!</span>";
         } else {
 
             $sql = "UPDATE
@@ -125,25 +116,19 @@ if (isset($_POST['add']) || isset($_POST['update'])) {
                       cl_id = '$id';";
 
             if (!mysqli_query($conn, $sql)) {
-                echo "Sql error occurred : update add";
+                echo "<span class='text-danger'>Sql error occurred : update add</span>";
                 echo mysqli_error($conn);
-
                 exit();
             } else {
-
                 $_SESSION['editId'] = $id;     // Id for record
                 $_SESSION['editok'] = "true";
-                echo "First update okay";
-//                header("location: ../edit-student.php?edit-id=".$id."&update=firstok");
-                $_SESSION['msg'] = "Record updated successfully!";
-
+                echo "<span class='text-success'>Update stage one successful!</span>";
                 exit();
             }
 
         }
 
     } else {
-        header("location: ../index.php");
         exit();
     }
 
@@ -155,8 +140,8 @@ if (isset($_POST['add']) || isset($_POST['update'])) {
 //Update cancel handler img upload
 if (isset($_POST['cancelupdate'])) {
     unset($_SESSION['editok']);
-    echo "Profile image will remain unchanged";
-//    header("location: ../view-records.php?update=done");
+    echo "<span class='text-info'>Profile image will remain unchanged</span>";
+    $move = true;
 }
 
 //Add cancel handler img upload
@@ -170,11 +155,9 @@ if (isset($_POST['canceladd'])) {
         echo mysqli_error($conn);
 
     }
-
+    $move = true;
     unset($_SESSION['addok']);
-    echo "Default profile will be used";
-//    header("location: ../view-records.php?upload=success");
-
+    echo "<span class='text-info'>Default profile will be used</span>";
 }
 
 
@@ -209,7 +192,7 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                     $sql = "INSERT INTO clients_gallery_tb (im_cl_id,im_folder,im_full_name) VALUES ('$addId','$folder','$imageFullName');";
 
                     if (!mysqli_query($conn,$sql)) {
-                        echo "Sql statement failed : img add";
+                        echo "<span class='text-danger'>Sql statement failed : img add</span>";
                         echo mysqli_error($conn);
                         exit();
                     } else {
@@ -217,28 +200,29 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                         // update img status records
                         $sql = "UPDATE clients_tb SET cl_img_stat=1 WHERE cl_id ='$addId';";
                         if (!mysqli_query($conn, $sql)) {
-                            echo "error : table update";
+                            echo "<span class='text-danger'>error : client table img update</span>";
+
+                            echo "";
                             echo mysqli_error($conn);
                             exit();
                         }
-
-
                         move_uploaded_file($fileTempName,$fileDestination);
                         unset($_SESSION['addok']);
                         unset($_SESSION['addId']);
-                        header("location: ../view-record.php?upload=success");
+                        $move = true;
+                        echo "<span class='text-success'>Image uploaded successfully</span>";
                     }
 
                 } else {
-                    echo "Huge file";
+                    echo "<span class='text-danger'>Huge file</span>";
                     exit();
                 }
             } else {
-                echo "File error internally";
+                echo "<span class='text-danger'>File error internally</span>";
                 exit();
             }
         } else {
-            echo "Invalid file uploaded";
+            echo "<span class='text-danger'>Invalid file uploaded</span>";
             exit();
         }
 
@@ -257,7 +241,7 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                     $sql = "UPDATE clients_gallery_tb SET im_folder='$folder', im_full_name='$imageFullName' WHERE im_cl_id='$editId';";
 
                     if (!mysqli_query($conn,$sql)) {
-                        echo "Sql statement failed : img add";
+                        echo "<span class='text-danger'>Sql statement failed : img add</span>";
                         echo mysqli_error($conn);
                         exit();
                     } else {
@@ -265,7 +249,7 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                         // update img status records
                         $sql = "UPDATE clients_tb SET cl_img_stat=1 WHERE cl_id ='$editId';";
                         if (!mysqli_query($conn, $sql)) {
-                            echo "error : table update";
+                            echo "<span class='text-danger'>error : table update</span>";
                             echo mysqli_error($conn);
                             exit();
                         }
@@ -274,20 +258,20 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                         move_uploaded_file($fileTempName,$fileDestination);
                         unset($_SESSION['editok']);
                         unset($_SESSION['editId']);
-                        echo "Image updated";
-//                        header("location: ../view-records.php?edit-upload=success");
+                        echo "<span class='text-success'>Image updated successfully!</span>";
+                        $move = true;
                     }
 
                 } else {
-                        echo "Huge file";
+                        echo "<span class='text-danger'>Huge file</span>";
                         exit();
                     }
                 } else {
-                    echo "File error internally";
+                    echo "<span class='text-danger'>File error internally</span>";
                     exit();
                 }
             } else {
-                echo "Invalid file uploaded";
+                echo "<span class='text-danger'>Invalid file uploaded</span>";
                 exit();
             }
 
@@ -296,9 +280,9 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
         exit();
     }
 }
-
 //Stage two submit ends
 
-
-
 ?>
+<script>
+    let moveStat =<?php echo $move; ?>;
+</script>
