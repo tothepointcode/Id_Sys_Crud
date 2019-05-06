@@ -1,6 +1,7 @@
 <?php
-    require ('includes/check-login.php');
     include("header.php");
+    require('includes/check-login.php');
+    require('includes/dashboard-server.php');
 ?>
 <main>
     <div class="container py-2">
@@ -21,7 +22,7 @@
             <div class="col-sm-4 my-2">
                 <div class="card">
                     <div class="card-body">
-                        <h3>34 <i class="fas fa-users"></i></h3>
+                        <h3><?php echo $countOfRecords; ?> <i class="fas fa-users"></i></h3>
                         <h4>All Clients</h4>
                     </div>
                 </div>
@@ -29,7 +30,7 @@
             <div class="col-sm-4 my-2">
                 <div class="card">
                     <div class="card-body">
-                        <h3>23 <i class="fas fa-users"></i></h3>
+                        <h3><?php echo $countOfMaleRecords; ?> <i class="fas fa-users"></i></h3>
                         <h4>Male Clients</h4>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
             <div class="col-sm-4 my-2">
                 <div class="card">
                     <div class="card-body">
-                        <h3>329 <i class="fas fa-users"></i></h3>
+                        <h3><?php echo $countOfFemaleRecords; ?> <i class="fas fa-users"></i></h3>
                         <h4>Female Clients</h4>
                     </div>
                 </div>
@@ -55,14 +56,39 @@
                         <th>Date of Birth</th>
                         <th>Educational Level</th>
                     </tr>
-                    <tr>
-                        <td>Image</td>
-                        <td>Tracy Bandoh</td>
-                        <td>Female</td>
-                        <td>12/12/1992</td>
-                        <td>College Education</td>
-                    </tr>
+
+                    <?php
+                    if (!$result = mysqli_query($conn, $sql)) {
+                        echo "No records available";
+                    } else { ?>
+                        <?php while ($row = mysqli_fetch_assoc($result)) :?>
+
+                        <?php
+                        $id = $row['cl_id'];
+                        if ($row['cl_img_stat'] == 1) {
+                        $sql = "SELECT * FROM clients_gallery_tb WHERE im_cl_id='$id';";
+                        $imResult = mysqli_query($conn, $sql);
+                        $imPath = mysqli_fetch_assoc($imResult);
+                        $path = $imPath['im_folder'].$imPath['im_full_name'].'?'.mt_rand();
+                        } else {
+                        $path = "./images/test.png";
+                        }
+                        ?>
+
+                        <tr>
+                            <td><div id="viewImg" style="background-image: url(<?php echo $path; ?>)"></div></td>
+                            <td><?php echo $row['cl_first_name'].$row['cl_last_name']; ?></td>
+                            <td><?php echo $row['cl_sex']?></td>
+                            <td><?php echo $row['cl_dob']?></td>
+                            <td><?php echo $row['cl_education_level']?></td>
+                        </tr>
+
+                        <?php endwhile; ?>
+
+                    <?php } ?>
+
                 </table>
+
             </div>
 
         </div>
