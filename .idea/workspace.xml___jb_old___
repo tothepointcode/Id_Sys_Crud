@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="513be497-80e9-45e5-8a29-4a1bde7e5b4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/clientimg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/add-record-server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/dashboard-server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/db.inc.dashboard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/includes/delete-record-server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/add-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/add-record.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.inc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/db.inc.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delete-record.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/delete-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/delete-record-server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit-record.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/includes/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/check-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/check-login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view-record.php" beforeDir="false" afterPath="$PROJECT_DIR$/view-record.php" afterDir="false" />
     </list>
@@ -29,17 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view-record.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -99,6 +82,11 @@
               <item name="NIDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="NIDS" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NIDS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NIDS" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -147,10 +135,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63285000" />
+    <option name="totallyTimeSpent" value="63282000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25302014" />
@@ -265,8 +254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view-record.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="161">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -298,9 +287,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard2.php" />
-    <entry file="file://$PROJECT_DIR$/config/config.inc2.php" />
-    <entry file="file://$PROJECT_DIR$/includes/dashboard-server2.php" />
+    <entry file="file://$PROJECT_DIR$/dashboard2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="41" lean-forward="true" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#2;n#div#0;n#main#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.inc2.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/dashboard-server2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="2" lean-forward="true" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/db.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="2" lean-forward="true" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/check-login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">

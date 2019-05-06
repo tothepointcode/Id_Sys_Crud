@@ -1,7 +1,8 @@
 <?php
-    require ('includes/check-login.php');
-    include("header.php");
-?><main>
+include("header.php");
+require ('includes/check-login.php');
+?>
+<main>
     <div class="container py-2">
         <div class="row py-2">
             <div class="col-sm-8 col-md-10">
@@ -22,7 +23,7 @@
                     <section class="col-sm-8 border-right">
                         <h4 class="text-light">Stage One</h4>
 
-                        <form class="row" action="includes/process.php" method="POST" enctype="multipart/form-data">
+                        <form class="row" action="includes/add-record-server.php" method="POST" enctype="multipart/form-data">
 
                             <section class="col-sm-6 p-4">
                                 <div class="form-group">
@@ -43,7 +44,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="sex">Sex: </label>
-                                    <select id="sex" class="form-control" name="sex">
+                                    <select id="sex" name="sex" class="form-control">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
@@ -90,7 +91,7 @@
 
                     <section class="col-sm-4 row text-center">
                         <div class="col-sm"></div>
-                        <form class="col-sm-10 mt-5" action="" enctype="multipart/form-data">
+                        <form class="col-sm-10 mt-5" method="post" action="includes/add-record-server.php" enctype="multipart/form-data">
                             <div class="form-group">
                                  <h4 class="text-light">Stage Two</h4>
                                 <label for="file">Upload Profile Image</label>
