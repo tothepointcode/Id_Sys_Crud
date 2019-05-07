@@ -4,7 +4,6 @@ session_start();
 include "../config/db.inc.php";
 
 // Handle add and update operations
-$move = false;
 // stage one submit
 if (isset($_POST['add']) || isset($_POST['update'])) {
 
@@ -142,22 +141,20 @@ if (isset($_POST['cancelupdate'])) {
     unset($_SESSION['editId']);
     echo "<span class='text-info'>Profile image will remain unchanged</span>";
     header("location: ../view-record.php");
-    $move = true;
 }
 
 //Add cancel handler img upload
 if (isset($_POST['canceladd'])) {
     $addId = $_SESSION['addId'];
 
-    $sql = "INSERT INTO studentgallery (img_stdid) VALUES ($addId);";
+    $sql = "INSERT INTO clients_gallery_tb (im_cl_id) VALUES ('$addId');";
 
-    if($res = mysqli_query($conn,$sql)) {
+    if(!$res = mysqli_query($conn,$sql)) {
         echo "SQL error : Img cancel add";
         echo mysqli_error($conn);
-
     }
-    $move = true;
     unset($_SESSION['addok']);
+    unset($_SESSION['addid']);
     header("location: ../view-record.php");
     echo "<span class='text-info'>Default profile will be used</span>";
 }
@@ -264,7 +261,6 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
                         unset($_SESSION['editId']);
                         echo "<span class='text-success'>Image updated successfully!</span>";
                         header("location: ../view-record.php");
-                        $move = true;
                     }
 
                 } else {
@@ -288,6 +284,4 @@ if (isset($_POST['addimage']) || isset($_POST['updateimg'])) {
 //Stage two submit ends
 
 ?>
-<script>
-    let moveStat =<?php echo $move; ?>;
-</script>
+
